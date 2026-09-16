@@ -6,10 +6,10 @@ type Lang = "en" | "es";
 
 const copy = {
   en: {
-    nav: [["Work", "#work"], ["Capabilities", "#capabilities"], ["Studio", "#studio"], ["Process", "#process"], ["Contact", "#contact"]],
+    nav: [["Work", "#work"], ["Capabilities", "#capabilities"], ["Studio", "#studio"], ["Contact", "#contact"]],
     start: "Start a Project",
-    hero: ["We design.", "We build.", "We transform spaces."],
-    intro: "FrameBuild Studios is a Miami-based experiential design and custom fabrication studio creating physical environments for brands, agencies and events.",
+    hero: ["We build ideas", "into experiences."],
+    intro: "Experiential design and custom fabrication for brands, agencies and spaces.",
     view: "View Our Work",
     statementTitle: "Ideas are easy. Building them is the hard part.",
     statement: "We turn ambitious concepts into physical experiences through design, engineering, fabrication and installation.",
@@ -40,10 +40,10 @@ const copy = {
     footerLine: "Experiential Design & Custom Fabrication", footerCopy: "Designed and built around ideas worth experiencing.", menu: "Menu",
   },
   es: {
-    nav: [["Proyectos", "#work"], ["Servicios", "#capabilities"], ["Estudio", "#studio"], ["Proceso", "#process"], ["Contacto", "#contact"]],
+    nav: [["Proyectos", "#work"], ["Servicios", "#capabilities"], ["Estudio", "#studio"], ["Contacto", "#contact"]],
     start: "Iniciar un Proyecto",
-    hero: ["Diseñamos.", "Construimos.", "Transformamos espacios."],
-    intro: "FrameBuild Studios es un estudio de diseño experiencial y fabricación personalizada en Miami. Creamos espacios e instalaciones para marcas, agencias y eventos.",
+    hero: ["Construimos ideas", "en experiencias."],
+    intro: "Diseño experiencial y fabricación personalizada para marcas, agencias y espacios.",
     view: "Ver Proyectos",
     statementTitle: "Las ideas son fáciles. Construirlas es otra historia.",
     statement: "Convertimos conceptos ambiciosos en experiencias físicas a través del diseño, la ingeniería, la fabricación y la instalación.",
@@ -143,10 +143,8 @@ export function FrameBuildSite({ lang }: { lang: Lang }) {
 
     <main id="top">
       <section className="hero">
-        <img className="hero-image" src="/images/hero.webp" alt="Custom fabricated hospitality environment by FrameBuild Studios" fetchPriority="high" />
-        <div className="hero-shade" />
-        <div className="hero-content"><h1>{c.hero.map((line) => <span key={line}>{line}</span>)}</h1><p>{c.intro}</p><div className="hero-buttons"><a className="button button-gold" href="#contact" onClick={() => track("click_start_project")}>{c.start}</a><a className="text-link light" href="#work">{c.view}<span>↘</span></a></div></div>
-        <div className="hero-glass"><span>Miami, Florida</span><span>Design · Engineering · Fabrication · Installation</span></div>
+        <div className="hero-content"><h1>{c.hero.map((line) => <span key={line}>{line}</span>)}</h1><p>{c.intro}</p><div className="hero-buttons"><a className="button button-dark" href="#contact" onClick={() => track("click_start_project")}>{c.start}</a><a className="text-link" href="#work">{c.view}<span>→</span></a></div></div>
+        <figure className="hero-media"><img className="hero-image" src="/images/hero.webp" alt="Custom fabricated hospitality environment by FrameBuild Studios" fetchPriority="high" /><figcaption><span>Miami, Florida</span><span>Design · Engineering · Fabrication · Installation</span></figcaption></figure>
       </section>
 
       <section className="statement section-pad"><div className="statement-copy"><h2>{c.statementTitle}</h2><p>{c.statement}</p></div><figure className="statement-image"><img src="/images/project-corporate.webp" alt="Corporate experiential environment" loading="lazy" /></figure></section>
@@ -163,7 +161,7 @@ export function FrameBuildSite({ lang }: { lang: Lang }) {
 
       <section id="studio" className="studio section-pad"><div className="studio-image"><img src="/images/process-fabrication.webp" alt="FrameBuild fabrication process" loading="lazy" /></div><div className="studio-copy"><h2>{c.studio}</h2><p>{c.studioText}</p><blockquote>{c.quote}</blockquote><p>{c.studioMore}</p></div></section>
 
-      <section className="agency"><img src="/images/agency-build.webp" alt="Fabrication and installation partner for creative agencies" loading="lazy" /><div className="agency-shade" /><div className="agency-content glass-panel"><h2>{c.agencyTitle}</h2><p>{c.agencyText}</p><a className="button button-gold" href="#contact">{c.send}</a></div></section>
+      <section className="agency"><img src="/images/agency-build.webp" alt="Fabrication and installation partner for creative agencies" loading="lazy" /><div className="agency-shade" /><div className="agency-content glass-panel"><h2>{c.agencyTitle}</h2><p>{c.agencyText}</p><a className="button button-light" href="#contact">{c.send}</a></div></section>
 
       <section className="final-cta section-pad"><h2>{c.finalTitle}</h2><p>{c.finalText}</p><a className="text-link" href="#contact">{c.start}<span>↘</span></a></section>
 
@@ -171,7 +169,7 @@ export function FrameBuildSite({ lang }: { lang: Lang }) {
         <div className="contact-heading"><h2>{c.formTitle}</h2><p>{c.formIntro}</p><div className="contact-detail"><span>Miami, Florida · South Florida · National Projects</span></div></div>
         {sent ? <div className="thank-you" role="status"><h3>{c.thanks}</h3><p>{c.thanksText}</p><button className="text-link" onClick={() => setSent(false)}>← {c.formTitle}</button></div> : <form className="project-form" onFocus={() => track("project_form_start")} onSubmit={(e) => { e.preventDefault(); track("project_form_submit"); setSent(true); }}>
           <label><span>{c.fields.name}</span><input name="name" autoComplete="name" required /></label><label><span>{c.fields.company}</span><input name="company" autoComplete="organization" /></label><label><span>{c.fields.email}</span><input type="email" name="email" autoComplete="email" required /></label><label><span>{c.fields.phone}</span><input type="tel" name="phone" autoComplete="tel" /></label>
-          <label className="full"><span>{c.fields.type}</span><select name="project_type" defaultValue="" required><option value="" disabled>—</option>{c.types.map((option) => <option key={option}>{option}</option>)}</select></label><label><span>{c.fields.location}</span><input name="location" /></label><label><span>{c.fields.date}</span><input type="date" name="date" /></label><label className="full"><span>{c.fields.budget}</span><select name="budget" defaultValue=""><option value="">—</option>{c.budgets.map((option) => <option key={option}>{option}</option>)}</select></label><label className="full"><span>{c.fields.details}</span><textarea name="details" rows={5} required /></label><label className="file-field full"><span>{c.fields.file}</span><input type="file" name="file" accept=".pdf,.png,.jpg,.jpeg,.ppt,.pptx" onChange={() => track("file_upload")} /></label><button className="button button-gold form-submit" type="submit">{c.fields.submit}<span>↗</span></button>
+          <label className="full"><span>{c.fields.type}</span><select name="project_type" defaultValue="" required><option value="" disabled>—</option>{c.types.map((option) => <option key={option}>{option}</option>)}</select></label><label><span>{c.fields.location}</span><input name="location" /></label><label><span>{c.fields.date}</span><input type="date" name="date" /></label><label className="full"><span>{c.fields.budget}</span><select name="budget" defaultValue=""><option value="">—</option>{c.budgets.map((option) => <option key={option}>{option}</option>)}</select></label><label className="full"><span>{c.fields.details}</span><textarea name="details" rows={5} required /></label><label className="file-field full"><span>{c.fields.file}</span><input type="file" name="file" accept=".pdf,.png,.jpg,.jpeg,.ppt,.pptx" onChange={() => track("file_upload")} /></label><button className="button button-light form-submit" type="submit">{c.fields.submit}<span>↗</span></button>
         </form>}
       </section>
     </main>
