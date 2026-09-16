@@ -89,6 +89,17 @@ function CapabilityIcon({ index }: { index: number }) {
   return <svg className="capability-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{icons[index]}</svg>;
 }
 
+function ProcessIcon({ index }: { index: number }) {
+  const icons = [
+    <><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 5 5"/><path d="M10.5 8v5M8 10.5h5"/></>,
+    <><path d="m4 20 4.5-1 10-10a2.1 2.1 0 0 0-3-3l-10 10L4 20Z"/><path d="m14.5 7.5 3 3"/></>,
+    <><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m4.5 7.8 7.5 4.3 7.5-4.3M12 12v9"/></>,
+    <><path d="M5 19 19 5"/><path d="m14 5 5 5"/><path d="M4 20h5"/><path d="M7 17 4 14"/></>,
+    <><path d="M20 11a8 8 0 1 1-4-6.9"/><path d="m9 11 2.5 2.5L20 5"/></>,
+  ];
+  return <svg className="process-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.45" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{icons[index]}</svg>;
+}
+
 function track(event: string, extra: Record<string, string> = {}) {
   if (typeof window === "undefined") return;
   const dataLayer = ((window as unknown as { dataLayer?: unknown[] }).dataLayer ||= []);
@@ -148,7 +159,7 @@ export function FrameBuildSite({ lang }: { lang: Lang }) {
 
       <section id="capabilities" className="capabilities"><img className="cap-bg" src="/images/agency-build.webp" alt="Custom fabrication installation in progress" loading="lazy" /><div className="cap-shade" /><div className="cap-inner section-pad"><h2>{c.capabilities}</h2><div className="cap-grid">{c.services.map(([title, text], index) => <article className="glass-card" key={title}><CapabilityIcon index={index} /><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
 
-      <section id="process" className="process section-pad"><h2>{c.process}</h2><div className="process-grid">{c.steps.map(([title, text], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{text}</p></article>)}</div></section>
+      <section id="process" className="process section-pad"><h2>{c.process}</h2><div className="process-grid">{c.steps.map(([title, text], index) => <article key={title}><div className="process-icon-wrap"><ProcessIcon index={index} /></div><h3>{title}</h3><p>{text}</p></article>)}</div></section>
 
       <section id="studio" className="studio section-pad"><div className="studio-image"><img src="/images/process-fabrication.webp" alt="FrameBuild fabrication process" loading="lazy" /></div><div className="studio-copy"><h2>{c.studio}</h2><p>{c.studioText}</p><blockquote>{c.quote}</blockquote><p>{c.studioMore}</p></div></section>
 
