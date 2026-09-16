@@ -16,7 +16,7 @@ const copy = {
     selected: "Selected Work",
     selectedText: "Real environments, fabricated details and installations shaped for the way people move, gather and remember.",
     explore: "Explore the Project",
-    work: [["Corporate Hospitality Pavilion", "Experiential Environment", "South Florida"], ["Executive Brand Lounge", "Corporate Hospitality", "Miami, Florida"], ["Architectural Media Bar", "Custom Fabrication", "South Florida"], ["Interactive Retail Environment", "Brand Experience", "National"]],
+    work: [["Architectural Pavilion Bar", "Custom Hospitality Environment", "South Florida"], ["Executive Brand Lounge", "Corporate Hospitality", "Miami, Florida"], ["Architectural Media Bar", "Custom Fabrication", "South Florida"], ["Interactive Retail Environment", "Brand Experience", "National"], ["Outdoor Hospitality Pavilion", "Event Environment", "South Florida"], ["Executive Reception Environment", "Architectural Millwork", "Miami, Florida"]],
     workNote: "Selected project experience. Scope and project credits are available upon request.",
     capabilities: "What We Build",
     services: [["Custom Fabrication", "One-of-a-kind structures and branded environments built around the project—not a catalog."], ["Brand Activations", "Physical brand experiences designed to create attention, interaction and lasting recall."], ["Experiential Environments", "Immersive spaces for corporate events, hospitality, launches and live experiences."], ["Architectural Installations", "Custom structures and features combining design thinking with fabrication expertise."], ["Pop-Ups & Pavilions", "Temporary environments engineered for impact, efficiency and installation."], ["Agency Fabrication", "White-label production support for teams with a concept and a need for precise execution."]],
@@ -50,7 +50,7 @@ const copy = {
     selected: "Proyectos Seleccionados",
     selectedText: "Espacios reales, detalles fabricados e instalaciones creadas para la forma en que las personas se reúnen, recorren y recuerdan.",
     explore: "Ver Proyecto",
-    work: [["Pabellón de Hospitalidad Corporativa", "Espacio Experiencial", "Sur de Florida"], ["Lounge Ejecutivo de Marca", "Hospitalidad Corporativa", "Miami, Florida"], ["Bar Arquitectónico Multimedia", "Fabricación Personalizada", "Sur de Florida"], ["Espacio Interactivo de Retail", "Experiencia de Marca", "Nacional"]],
+    work: [["Bar de Pabellón Arquitectónico", "Espacio de Hospitalidad", "Sur de Florida"], ["Lounge Ejecutivo de Marca", "Hospitalidad Corporativa", "Miami, Florida"], ["Bar Arquitectónico Multimedia", "Fabricación Personalizada", "Sur de Florida"], ["Espacio Interactivo de Retail", "Experiencia de Marca", "Nacional"], ["Pabellón de Hospitalidad Exterior", "Espacio para Eventos", "Sur de Florida"], ["Recepción Ejecutiva a Medida", "Carpintería Arquitectónica", "Miami, Florida"]],
     workNote: "Experiencia seleccionada en proyectos. El alcance y los créditos están disponibles a solicitud.",
     capabilities: "Lo Que Construimos",
     services: [["Fabricación Personalizada", "Estructuras únicas y espacios de marca fabricados alrededor del proyecto, no de un catálogo."], ["Activaciones de Marca", "Experiencias físicas diseñadas para atraer atención, generar interacción y dejar memoria."], ["Espacios Experienciales", "Ambientes inmersivos para eventos corporativos, hospitality, lanzamientos y experiencias en vivo."], ["Instalaciones Arquitectónicas", "Estructuras y elementos personalizados que combinan diseño y experiencia de fabricación."], ["Pop-Ups y Pabellones", "Espacios temporales diseñados para generar impacto, eficiencia y una instalación precisa."], ["Fabricación para Agencias", "Producción white-label para equipos con una idea que necesitan ejecución confiable."]],
@@ -75,7 +75,19 @@ const copy = {
   },
 };
 
-const workImages = ["/images/project-corporate.webp", "/images/project-hospitality.webp", "/images/project-bar.webp", "/images/project-retail.webp"];
+const workImages = ["/images/project-pavilion.webp", "/images/project-hospitality.webp", "/images/project-bar.webp", "/images/project-retail.webp", "/images/project-event.webp", "/images/project-corporate-desk.webp"];
+
+function CapabilityIcon({ index }: { index: number }) {
+  const icons = [
+    <><path d="M5 19 19 5"/><path d="m14 5 5 5"/><path d="M4 20h5"/></>,
+    <><path d="m12 3 1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3Z"/><path d="m18 15 .8 2.2L21 18l-2.2.8L18 21l-.8-2.2L15 18l2.2-.8L18 15Z"/></>,
+    <><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m4.5 7.8 7.5 4.3 7.5-4.3M12 12v9"/></>,
+    <><path d="M4 20h16M6 17V9m4 8V9m4 8V9m4 8V9M4 7l8-4 8 4H4Z"/></>,
+    <><path d="M3 10h18M5 10v10m14-10v10M4 20h16M6 10l2-6h8l2 6"/></>,
+    <><path d="m8 12 3 3 5-5"/><path d="M3 8.5 7 5l4 3 2-1.5L17 5l4 3.5-4.5 8.5H7.5L3 8.5Z"/></>,
+  ];
+  return <svg className="capability-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.35" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{icons[index]}</svg>;
+}
 
 function track(event: string, extra: Record<string, string> = {}) {
   if (typeof window === "undefined") return;
@@ -134,7 +146,7 @@ export function FrameBuildSite({ lang }: { lang: Lang }) {
         <p className="work-note">{c.workNote}</p><a className="button button-dark centered-cta" href="#contact">{c.start}</a>
       </section>
 
-      <section id="capabilities" className="capabilities"><img className="cap-bg" src="/images/agency-build.webp" alt="Custom fabrication installation in progress" loading="lazy" /><div className="cap-shade" /><div className="cap-inner section-pad"><h2>{c.capabilities}</h2><div className="cap-grid">{c.services.map(([title, text], index) => <article className="glass-card" key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
+      <section id="capabilities" className="capabilities"><img className="cap-bg" src="/images/agency-build.webp" alt="Custom fabrication installation in progress" loading="lazy" /><div className="cap-shade" /><div className="cap-inner section-pad"><h2>{c.capabilities}</h2><div className="cap-grid">{c.services.map(([title, text], index) => <article className="glass-card" key={title}><CapabilityIcon index={index} /><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
 
       <section id="process" className="process section-pad"><h2>{c.process}</h2><div className="process-grid">{c.steps.map(([title, text], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{text}</p></article>)}</div></section>
 
@@ -154,6 +166,10 @@ export function FrameBuildSite({ lang }: { lang: Lang }) {
     </main>
 
     <a className="mobile-sticky" href="#contact" onClick={() => track("click_start_project")}>{c.start}<span>↗</span></a>
-    <footer><div className="footer-brand"><img src="/images/framebuild-logo.png" alt="FrameBuild Studios" /><p>{c.footerLine}<br />Miami, Florida</p></div><div className="footer-links">{c.nav.slice(0, 4).map(([label, href]) => <a key={label} href={href}>{label}</a>)}<a href={languageHref}>{lang === "en" ? "Español" : "English"}</a></div><p className="footer-copy">{c.footerCopy}</p></footer>
+    <footer className="site-footer">
+      <div className="footer-top"><div className="footer-brand"><img src="/images/framebuild-logo.png" alt="FrameBuild Studios" /><p>{c.footerLine}</p></div><a className="footer-cta" href="#contact"><span>{c.start}</span><b>↗</b></a></div>
+      <div className="footer-bottom"><nav className="footer-links" aria-label="Footer navigation">{c.nav.map(([label, href]) => <a key={label} href={href}>{label}</a>)}</nav><div className="footer-meta"><span>Miami, Florida</span><span>South Florida · National Projects</span><a href={languageHref}>{lang === "en" ? "Español" : "English"}</a></div></div>
+      <div className="footer-legal"><p>{c.footerCopy}</p><p>© {new Date().getFullYear()} FrameBuild Studios</p></div>
+    </footer>
   </>;
 }
