@@ -21,10 +21,10 @@ h1, h2, h3 { letter-spacing: -0.04em; line-height: 1.04; }
 h2 { font-size: clamp(2.4rem, 3.7vw, 3.8rem); font-weight: 560; }
 .section-pad { padding: clamp(5.5rem, 8vw, 8rem) clamp(1.25rem, 5vw, 5.5rem); }
 
-.site-header { align-items: center; background: rgba(255,255,255,.82); backdrop-filter: blur(24px); color: var(--ink); display: grid; grid-template-columns: 285px 1fr auto; height: 88px; left: 0; padding: 0 clamp(1.25rem, 4vw, 4.5rem); position: fixed; right: 0; top: 0; transition: height .35s ease, box-shadow .35s ease, background .35s ease; z-index: 50; }
-.header-solid { background: rgba(255,255,255,.94); height: 76px; box-shadow: 0 1px 0 rgba(17,17,17,.07); }
-.brand { align-items: center; display: flex; height: 66px; width: 245px; }
-.brand-logo { height: 62px; object-fit: contain; object-position: left center; width: 235px; }
+.site-header { align-items: center; background: rgba(255,255,255,.82); backdrop-filter: blur(24px); color: var(--ink); display: grid; grid-template-columns: 210px 1fr auto; height: 112px; left: 0; padding: 0 clamp(1.25rem, 4vw, 4.5rem); position: fixed; right: 0; top: 0; transition: height .35s ease, box-shadow .35s ease, background .35s ease; z-index: 50; }
+.header-solid { background: rgba(255,255,255,.94); height: 100px; box-shadow: 0 1px 0 rgba(17,17,17,.07); }
+.brand { align-items: center; display: flex; height: 99px; width: 165px; }
+.brand-logo { height: 93px; object-fit: contain; object-position: left center; width: 140px; }
 .desktop-nav { display: flex; gap: clamp(1rem, 2.2vw, 2.25rem); justify-content: center; }
 .desktop-nav a, .language { font-size: .88rem; font-weight: 500; letter-spacing: 0; position: relative; }
 .desktop-nav a::after { background: var(--gold); bottom: -8px; content: ""; height: 1px; left: 0; position: absolute; transform: scaleX(0); transform-origin: left; transition: transform .3s ease; width: 100%; }
@@ -171,7 +171,7 @@ h2 { font-size: clamp(2.4rem, 3.7vw, 3.8rem); font-weight: 560; }
 @keyframes heroScale { from { transform: scale(1.045); } to { transform: scale(1); } }
 
 @media (max-width: 1100px) {
-  .site-header { grid-template-columns: 245px 1fr; }
+  .site-header { grid-template-columns: 190px 1fr; }
   .desktop-nav { display: none; }
   .header-actions { justify-self: end; }
   .menu-button { display: block; }
@@ -185,12 +185,12 @@ h2 { font-size: clamp(2.4rem, 3.7vw, 3.8rem); font-weight: 560; }
   body { font-size: 17px; }
   .section-pad { padding: 5rem 1.25rem; }
   h2 { font-size: clamp(2.35rem, 11vw, 3.4rem); }
-  .site-header, .header-solid { height: 76px; padding: 0 1rem; }
-  .site-header { grid-template-columns: 190px 1fr; }
-  .brand { height: 58px; width: 185px; }
-  .brand-logo { height: 54px; width: 180px; }
+  .site-header, .header-solid { height: 92px; padding: 0 1rem; }
+  .site-header { grid-template-columns: 150px 1fr; }
+  .brand { height: 84px; width: 136px; }
+  .brand-logo { height: 81px; width: 122px; }
   .header-cta, .language { display: none; }
-  .hero { min-height: 0; padding: 8.5rem 0 2rem; }
+  .hero { min-height: 0; padding: 9.5rem 0 2rem; }
   .hero-content { padding: 0 1.25rem 3.25rem; }
   .hero h1 { font-size: clamp(2.5rem, 11vw, 3rem); line-height: 1.03; margin-bottom: 1.35rem; }
   .hero-content > p { font-size: 1.05rem; line-height: 1.5; }
