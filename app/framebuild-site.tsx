@@ -16,7 +16,7 @@ const copy = {
     selected: "Selected Work",
     selectedText: "Real environments, fabricated details and installations shaped for the way people move, gather and remember.",
     explore: "Explore the Project",
-    work: [["Architectural Pavilion Bar", "Custom Hospitality Environment", "South Florida"], ["Executive Brand Lounge", "Corporate Hospitality", "Miami, Florida"], ["Architectural Media Bar", "Custom Fabrication", "South Florida"], ["Interactive Retail Environment", "Brand Experience", "National"], ["Outdoor Hospitality Pavilion", "Event Environment", "South Florida"], ["Executive Reception Environment", "Architectural Millwork", "Miami, Florida"]],
+    work: [["Architectural Pavilion Bar", "Custom Hospitality Environment", "South Florida"], ["Executive Brand Lounge", "Corporate Hospitality", "Miami, Florida"], ["Architectural Media Bar", "Custom Fabrication", "South Florida"], ["Interactive Retail Environment", "Brand Experience", "National"], ["Outdoor Hospitality Pavilion", "Event Environment", "South Florida"], ["Executive Reception Environment", "Architectural Millwork", "Miami, Florida"], ["Hospitality Club Lounge", "Custom Interior Environment", "South Florida"], ["Sculptural Lounge Entry", "Architectural Detail", "South Florida"], ["Custom Sports Bar", "Hospitality Fabrication", "South Florida"], ["Integrated Lighting Detail", "Custom Fabrication", "South Florida"], ["Branded Reception Desk", "Corporate Hospitality", "South Florida"], ["Golf Hospitality Lounge", "Event Environment", "South Florida"], ["CME Brand Lounge", "Branded Environment", "South Florida"]],
     workNote: "Selected project experience. Scope and project credits are available upon request.",
     capabilities: "What We Build",
     services: [["Custom Fabrication", "One-of-a-kind structures and branded environments built around the project—not a catalog."], ["Brand Activations", "Physical brand experiences designed to create attention, interaction and lasting recall."], ["Experiential Environments", "Immersive spaces for corporate events, hospitality, launches and live experiences."], ["Architectural Installations", "Custom structures and features combining design thinking with fabrication expertise."], ["Pop-Ups & Pavilions", "Temporary environments engineered for impact, efficiency and installation."], ["Agency Fabrication", "White-label production support for teams with a concept and a need for precise execution."]],
@@ -50,7 +50,7 @@ const copy = {
     selected: "Proyectos Seleccionados",
     selectedText: "Espacios reales, detalles fabricados e instalaciones creadas para la forma en que las personas se reúnen, recorren y recuerdan.",
     explore: "Ver Proyecto",
-    work: [["Bar de Pabellón Arquitectónico", "Espacio de Hospitalidad", "Sur de Florida"], ["Lounge Ejecutivo de Marca", "Hospitalidad Corporativa", "Miami, Florida"], ["Bar Arquitectónico Multimedia", "Fabricación Personalizada", "Sur de Florida"], ["Espacio Interactivo de Retail", "Experiencia de Marca", "Nacional"], ["Pabellón de Hospitalidad Exterior", "Espacio para Eventos", "Sur de Florida"], ["Recepción Ejecutiva a Medida", "Carpintería Arquitectónica", "Miami, Florida"]],
+    work: [["Bar de Pabellón Arquitectónico", "Espacio de Hospitalidad", "Sur de Florida"], ["Lounge Ejecutivo de Marca", "Hospitalidad Corporativa", "Miami, Florida"], ["Bar Arquitectónico Multimedia", "Fabricación Personalizada", "Sur de Florida"], ["Espacio Interactivo de Retail", "Experiencia de Marca", "Nacional"], ["Pabellón de Hospitalidad Exterior", "Espacio para Eventos", "Sur de Florida"], ["Recepción Ejecutiva a Medida", "Carpintería Arquitectónica", "Miami, Florida"], ["Lounge de Club Hospitality", "Espacio Interior Personalizado", "Sur de Florida"], ["Entrada Escultural de Lounge", "Detalle Arquitectónico", "Sur de Florida"], ["Bar Deportivo Personalizado", "Fabricación para Hospitality", "Sur de Florida"], ["Detalle de Iluminación Integrada", "Fabricación Personalizada", "Sur de Florida"], ["Recepción Corporativa de Marca", "Hospitalidad Corporativa", "Sur de Florida"], ["Lounge de Hospitalidad de Golf", "Espacio para Eventos", "Sur de Florida"], ["Lounge de Marca CME", "Espacio de Marca", "Sur de Florida"]],
     workNote: "Experiencia seleccionada en proyectos. El alcance y los créditos están disponibles a solicitud.",
     capabilities: "Lo Que Construimos",
     services: [["Fabricación Personalizada", "Estructuras únicas y espacios de marca fabricados alrededor del proyecto, no de un catálogo."], ["Activaciones de Marca", "Experiencias físicas diseñadas para atraer atención, generar interacción y dejar memoria."], ["Espacios Experienciales", "Ambientes inmersivos para eventos corporativos, hospitality, lanzamientos y experiencias en vivo."], ["Instalaciones Arquitectónicas", "Estructuras y elementos personalizados que combinan diseño y experiencia de fabricación."], ["Pop-Ups y Pabellones", "Espacios temporales diseñados para generar impacto, eficiencia y una instalación precisa."], ["Fabricación para Agencias", "Producción white-label para equipos con una idea que necesitan ejecución confiable."]],
@@ -75,7 +75,21 @@ const copy = {
   },
 };
 
-const workImages = ["/images/project-pavilion.webp", "/images/project-hospitality.webp", "/images/project-bar.webp", "/images/project-retail.webp", "/images/project-event.webp", "/images/project-corporate-desk.webp"];
+const workImages = [
+  "/images/project-pavilion.webp",
+  "/images/project-hospitality.webp",
+  "/images/project-bar.webp",
+  "/images/project-retail.webp",
+  "/images/project-event.webp",
+  "/images/project-corporate-desk.webp",
+  "/images/drive-portfolio/hospitality-lounge.webp",
+  "/images/drive-portfolio/lounge-entry.webp",
+  "/images/drive-portfolio/custom-bar.webp",
+  "/images/drive-portfolio/lighting-detail.webp",
+  "/images/drive-portfolio/reception-desk.webp",
+  "/images/drive-portfolio/golf-lounge.webp",
+  "/images/drive-portfolio/brand-lounge.webp",
+];
 
 function CapabilityIcon({ index }: { index: number }) {
   const icons = [
